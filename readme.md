@@ -35,7 +35,7 @@ The **EEG Text Processor API** is a FastAPI-based application that processes EEG
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/eeg-text-processor.git
+   git clone https://github.com/aryaneelshivam/eeg-text-processor.git
    cd eeg-text-processor
    ```
 
@@ -50,8 +50,8 @@ The **EEG Text Processor API** is a FastAPI-based application that processes EEG
    ```
 
 4. Access the API documentation:
-   - Swagger UI: http://localhost:8000/docs
-   - ReDoc: http://localhost:8000/redoc
+   - Swagger UI: [http://localhost:8000/docs](https://brainwavetotext.onrender.com/docs#/)
+   - ReDoc: [http://localhost:8000/redoc](https://brainwavetotext.onrender.com/redocs#/)
 
 ---
 
