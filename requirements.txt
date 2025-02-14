@@ -1,0 +1,13 @@
+# Core dependencies
+fastapi
+uvicorn
+
+# Data processing and machine learning
+numpy
+pandas
+scipy
+scikit-learn
+
+# Additional utilities
+requests
+pydantic
