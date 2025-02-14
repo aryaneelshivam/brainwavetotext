@@ -50,8 +50,8 @@ The **EEG Text Processor API** is a FastAPI-based application that processes EEG
    ```
 
 4. Access the API documentation:
-   - Swagger UI: [http://localhost:8000/docs](https://brainwavetotext.onrender.com/docs#/)
-   - ReDoc: [http://localhost:8000/redoc](https://brainwavetotext.onrender.com/redocs#/)
+   - Swagger UI: https://brainwavetotext.onrender.com/docs#/
+   - ReDoc: https://brainwavetotext.onrender.com/redocs#/
 
 ---
 
