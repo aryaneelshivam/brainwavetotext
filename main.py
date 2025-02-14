@@ -11,7 +11,8 @@ from sklearn.preprocessing import RobustScaler, LabelEncoder
 from scipy.signal import butter, filtfilt
 import requests
 from typing import List, Dict, Optional
-import io 
+import io
+from fastapi.middleware.cors import CORSMiddleware  
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -20,6 +21,15 @@ app = FastAPI(
     title="EEG Text Processor",
     description="API for processing EEG signals and converting them to text",
     version="1.0.0"
+)
+
+# Add CORS middleware to the FastAPI app
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allows all headers
 )
 
 # Pydantic models for request/response validation
