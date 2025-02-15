@@ -14,7 +14,7 @@ from typing import List, Dict, Optional
 import io
 from fastapi.middleware.cors import CORSMiddleware  
 
-# Configure logging
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 app = FastAPI(
@@ -23,16 +23,16 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Add CORS middleware to the FastAPI app
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allows all origins
+    allow_origins=["*"],  
     allow_credentials=True,
-    allow_methods=["*"],  # Allows all methods (GET, POST, etc.)
-    allow_headers=["*"],  # Allows all headers
+    allow_methods=["*"],  
+    allow_headers=["*"],  
 )
 
-# Pydantic models for request/response validation
+
 class ProcessingConfig(BaseModel):
     fs: int = 256
     window_size: Optional[int] = None
@@ -58,7 +58,7 @@ class ProcessingResult(BaseModel):
     segment_sample: List[List[float]]
     feature_sample: List[Dict]
 
-# Global variables to store trained models and processors
+# Global variables 
 eeg_processor = None
 text_mapper = None
 rf_model = None
@@ -83,7 +83,7 @@ class EEGProcessor:
             df.dropna(axis=1, how='all', inplace=True)
             df.fillna(df.mean(), inplace=True)
             
-            # Select EEG Channels
+            # To Select EEG Channels
             self.eeg_columns = [col for col in df.columns if col not in ["Unnamed: 32"]]
             df = df[self.eeg_columns]
             
@@ -117,13 +117,13 @@ class EEGProcessor:
         feature_vector = {}
         
         for i, col in enumerate(self.eeg_columns):
-            # Time domain features
+            # Time domain 
             feature_vector[f"{col}_mean"] = float(np.mean(segment[:, i]))
             feature_vector[f"{col}_variance"] = float(np.var(segment[:, i]))
             feature_vector[f"{col}_kurtosis"] = float(kurtosis(segment[:, i]))
             feature_vector[f"{col}_skewness"] = float(skew(segment[:, i]))
             
-            # Frequency domain features
+            # Frequency domain 
             fft_values = np.abs(fft(segment[:, i]))
             feature_vector[f"{col}_fft_mean"] = float(np.mean(fft_values))
             feature_vector[f"{col}_fft_max"] = float(np.max(fft_values))
